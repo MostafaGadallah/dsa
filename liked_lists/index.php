@@ -1,49 +1,40 @@
 <?php
-class Node {
-public $next;
-public function __construct($value){
-		$this->val=$value;
-		$next=null;	
-	}
+class Node{
+    public $head=null;
 }
 class linkedlist{
-	public $next=null;
-	function printlist(){
-		$temp=$this->next;
-		if ($temp ==null){
-			echo "empty";
-		}
-        while($temp!=null){
-			echo $temp->val."<br>";
-			$temp=$temp->next;
-		}
-	}
+    public $next;
+    public $value;
+    public function __construct($val){
+        $this->next=null;
+        $this->value=$val;
+    }
 }
 $i=1;
-function add($v,$next=null){
-    $in=(int)$GLOBALS["i"]++ ;
-    $n="n".$in;
-    GLOBAL $$n;
-    $$n = new Node($v);
-    global $bn;
-    $bn="n".$in-1;
-    if($next==null){
-        if ($in != 1){
-            $GLOBALS[$bn]->next=$GLOBALS[$n];
-        }
+function add($val){
+    $index=(int) $GLOBALS["i"]++;
+    $cn="cn".$index;
+    $bn="cn".$index-1;
+    global $$cn;
+    global $$bn;
+    $$cn=new linkedlist($val);
+    if($index>1){
+        $GLOBALS[$bn]->next=$$cn;
     }
-    else{
-        $GLOBALS[$bn]->next="s";
+    return $$cn;
+}
+$mylist=new node();
+add("tjrij");
+add("asd");
+add("wq");
+add("f");
+$mylist->head=$cn1;
+echo "<pre>"; 
+var_dump($mylist);
+if($mylist->head!=null){
+    $temp=$mylist->head;
+    while($temp!=null){
+        echo $temp->value."<br>";
+        $temp=$temp->next;
     }
 }
-$list = new linkedlist();
-add(13);
-$list->next=$n1;
-add(18,"n3");
-add(23);
-add(28);
-add(33);
-$list->printlist();
-echo "<pre>";
-var_dump($list);
-echo "<pre>";
